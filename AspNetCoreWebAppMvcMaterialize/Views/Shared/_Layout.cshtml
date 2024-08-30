@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AspNetCoreWebAppMvcMaterialize</title>
+    <link rel="stylesheet" href="~/lib/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="~/lib/material-symbols/index.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AspNetCoreWebAppMvcMaterialize.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="primary">
+            <div class="nav-wrapper">
+                <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">AspNetCoreWebAppMvcMaterialize</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-symbols-rounded">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+        </ul>
+    </header>
+    <main role="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            &copy; 2024 - AspNetCoreWebAppMvcMaterialize - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/materialize/js/materialize.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
