@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="~/lib/material-symbols/index.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AspNetCoreWebAppMvcMaterialize.styles.css" asp-append-version="true" />
+    <script src="~/js/color-scheme-preference.js"></script>
 </head>
 <body>
     <header>
         <nav class="primary">
             <div class="nav-wrapper">
                 <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">AspNetCoreWebAppMvcMaterialize</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-symbols-rounded">menu</i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-symbols-outlined">menu</i></a>
+                <ul class="right">
+                    <li>
+                        <a id="theme-switch" href="#" title="Switch to dark mode"><i class="material-symbols-outlined">dark_mode</i></a>
+                    </li>
+                </ul>
                 <ul class="right hide-on-med-and-down">
                     <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
@@ -38,6 +44,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/materialize/js/materialize.min.js"></script>
+    <script src="~/js/color-scheme-switcher.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
