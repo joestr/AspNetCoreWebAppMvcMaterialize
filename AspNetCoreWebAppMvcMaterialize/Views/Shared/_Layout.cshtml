@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav class="primary">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper container">
                 <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">AspNetCoreWebAppMvcMaterialize</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-symbols-outlined">menu</i></a>
                 <ul class="right">
@@ -22,14 +22,14 @@
                     </li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                    <li><nav-anchor class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</nav-anchor></li>
+                    <li><nav-anchor class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</nav-anchor></li>
                 </ul>
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            <li><nav-anchor class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</nav-anchor></li>
+            <li><nav-anchor class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</nav-anchor></li>
         </ul>
     </header>
     <main role="main">
@@ -43,7 +43,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/materialize/js/materialize.min.js"></script>
+    <script src="~/lib/materialize/js/materialize.min.js"></script> 
     <script src="~/js/color-scheme-switcher.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
