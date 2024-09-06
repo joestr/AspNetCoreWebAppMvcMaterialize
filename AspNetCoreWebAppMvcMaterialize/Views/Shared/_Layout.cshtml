@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AspNetCoreWebAppMvcMaterialize</title>
-    <link rel="stylesheet" href="~/lib/materialize/css/materialize.min.css" />
-    <link rel="stylesheet" href="~/lib/material-symbols/index.css" />
+    <partial name="_LibraryStylesPartial" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AspNetCoreWebAppMvcMaterialize.styles.css" asp-append-version="true" />
     <script src="~/js/color-scheme-preference.js"></script>
@@ -42,7 +41,7 @@
             &copy; 2024 - AspNetCoreWebAppMvcMaterialize - <a asp-area="" asp-controller="Privacy" asp-action="Index">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/materialize/js/materialize.min.js"></script> 
+    <partial name="_LibraryScriptsPartial" />
     <script src="~/js/color-scheme-switcher.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
