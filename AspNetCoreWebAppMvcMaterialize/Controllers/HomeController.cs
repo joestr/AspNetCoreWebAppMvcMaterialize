@@ -1,6 +1,7 @@
 using AspNetCoreWebAppMvcMaterialize.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AspNetCoreWebAppMvcMaterialize.Controllers
 {
@@ -14,6 +15,17 @@ namespace AspNetCoreWebAppMvcMaterialize.Controllers
         }
 
         public IActionResult Index()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return new RedirectToActionResult("Start", "Home", null);
+            }
+
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Start()
         {
             return View();
         }
