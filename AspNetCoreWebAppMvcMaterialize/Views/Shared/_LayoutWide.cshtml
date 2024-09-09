@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="primary">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper pl-4 pr-4">
                 <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">AspNetCoreWebAppMvcMaterialize</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-symbols-outlined">menu</i></a>
                 <ul class="right">
@@ -31,10 +31,10 @@
             <sidenav-anchor class="nav-link" asp-area="" asp-controller="Privacy" asp-action="Index">Privacy</sidenav-anchor>
         </ul>
     </header>
-    <main role="main">
+    <main role="main" class="pl-4 pr-4">
         @RenderBody()
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer pl-4 pr-4 pb-5 pt-5">
         &copy; 2024 - AspNetCoreWebAppMvcMaterialize - <a asp-area="" asp-controller="Privacy" asp-action="Index">Privacy</a>
     </footer>
     <partial name="_LibraryScriptsPartial" />
