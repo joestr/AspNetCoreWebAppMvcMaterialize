@@ -24,7 +24,7 @@ namespace AspNetCoreWebAppMvcMaterialize.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         public IActionResult Start()
         {
             return View();
