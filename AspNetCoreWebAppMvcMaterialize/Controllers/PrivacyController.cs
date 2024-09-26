@@ -1,4 +1,4 @@
-using AspNetCoreWebAppMvcMaterialize.Models;
+using AspNetCoreWebAppMvcMaterialize.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

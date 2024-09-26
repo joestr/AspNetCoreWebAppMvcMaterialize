@@ -1,4 +1,4 @@
-namespace AspNetCoreWebAppMvcMaterialize.Models
+namespace AspNetCoreWebAppMvcMaterialize.ViewModels
 {
     public class ErrorViewModel
     {
