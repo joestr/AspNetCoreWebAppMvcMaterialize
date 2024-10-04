@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreWebAppMvcMaterial
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreWebAppMvcMaterialize.Test", "AspNetCoreWebAppMvcMaterialize.Test\AspNetCoreWebAppMvcMaterialize.Test.csproj", "{E9E3FE4F-BC35-4402-8A7F-B9D7BDECEE12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreWebAppMvcMaterialize.Data", "AspNetCoreWebAppMvcMaterialize.Data\AspNetCoreWebAppMvcMaterialize.Data.csproj", "{2B8903DB-8620-429B-94D4-3D2D981138B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreWebAppMvcMaterialize.Core", "AspNetCoreWebAppMvcMaterialize.Core\AspNetCoreWebAppMvcMaterialize.Core.csproj", "{B3911C51-6E62-442B-80BC-49034348F42C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E9E3FE4F-BC35-4402-8A7F-B9D7BDECEE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9E3FE4F-BC35-4402-8A7F-B9D7BDECEE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9E3FE4F-BC35-4402-8A7F-B9D7BDECEE12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8903DB-8620-429B-94D4-3D2D981138B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8903DB-8620-429B-94D4-3D2D981138B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8903DB-8620-429B-94D4-3D2D981138B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8903DB-8620-429B-94D4-3D2D981138B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3911C51-6E62-442B-80BC-49034348F42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3911C51-6E62-442B-80BC-49034348F42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3911C51-6E62-442B-80BC-49034348F42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3911C51-6E62-442B-80BC-49034348F42C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

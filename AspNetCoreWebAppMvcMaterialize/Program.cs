@@ -1,3 +1,5 @@
+using AspNetCoreWebAppMvcMaterialize.Core.Services;
+
 namespace AspNetCoreWebAppMvcMaterialize
 {
     public class Program
@@ -5,6 +7,9 @@ namespace AspNetCoreWebAppMvcMaterialize
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            DatabaseContextService.RegisterDatabaseContexts(builder.Services, builder.Configuration);
+            DataProviderService.RegisterDataProviders(builder.Services);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

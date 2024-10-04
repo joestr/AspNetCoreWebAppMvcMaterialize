@@ -12,4 +12,8 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\AspNetCoreWebAppMvcMaterialize.Core\AspNetCoreWebAppMvcMaterialize.Core.csproj" />
+	</ItemGroup>
+
 </Project>
