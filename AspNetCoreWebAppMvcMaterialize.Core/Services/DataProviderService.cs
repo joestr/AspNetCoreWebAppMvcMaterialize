@@ -10,7 +10,7 @@ namespace AspNetCoreWebAppMvcMaterialize.Core.Services
 {
     public class DataProviderService
     {
-        public static void RegisterDataProviders(IServiceCollection serviceCollection)
+        public DataProviderService(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<AuthorDataProvider>();
         }

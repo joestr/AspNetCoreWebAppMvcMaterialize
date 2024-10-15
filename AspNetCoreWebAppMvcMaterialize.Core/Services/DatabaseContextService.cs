@@ -12,12 +12,17 @@ namespace AspNetCoreWebAppMvcMaterialize.Core.Services
 {
     public class DatabaseContextService
     {
-        public static void RegisterDatabaseContexts(IServiceCollection serviceCollection, IConfiguration configuration)
+        public DatabaseContextService(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddDbContext<DatabaseContext>(options =>
+            var sqliteConnectionString = configuration.GetConnectionString("Sqlite");
+
+            if (sqliteConnectionString != null)
             {
-                configuration.GetConnectionString("Sqlite");
-            });
+                serviceCollection.AddDbContext<DatabaseContext>(options =>
+                {
+                    options.UseSqlite(sqliteConnectionString);
+                });
+            }
         }
     }
 }

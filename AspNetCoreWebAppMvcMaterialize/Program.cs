@@ -8,8 +8,8 @@ namespace AspNetCoreWebAppMvcMaterialize
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            DatabaseContextService.RegisterDatabaseContexts(builder.Services, builder.Configuration);
-            DataProviderService.RegisterDataProviders(builder.Services);
+            builder.Services.AddSingleton<DatabaseContextService>();
+            builder.Services.AddSingleton<DataProviderService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
