@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AspNetCoreWebAppMvcMaterialize.Data.Migrations
+namespace AspNetCoreWebAppMvcMaterialize.Data.Migrations.SqliteMigrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

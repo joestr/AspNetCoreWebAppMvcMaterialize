@@ -22,12 +22,6 @@ namespace AspNetCoreWebAppMvcMaterialize.Data.Contexts
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite();
-            base.OnConfiguring(optionsBuilder);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Book>(book => book.HasOne(b => b.Author).WithMany(c => c.Books));

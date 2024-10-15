@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AspNetCoreWebAppMvcMaterialize.Data.Migrations
+namespace AspNetCoreWebAppMvcMaterialize.Data.Migrations.SqliteMigrations
 {
-    [DbContext(typeof(DatabaseContext))]
-    [Migration("20241004084116_InitialCreate")]
+    [DbContext(typeof(SqliteDatabaseContext))]
+    [Migration("20241015143539_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

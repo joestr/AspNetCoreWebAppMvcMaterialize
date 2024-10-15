@@ -27,3 +27,17 @@ To apply the new schema to the database use the command `dotnet ef database upda
 ## Aditional information
 
 Find addiotional information about this process [here](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
+
+## Specifics
+
+We aim to target multiple database systems, so we make things a little bit differently.
+
+### Create a migration
+
+- Microsoft SQL Server: `dotnet ef migrations add InitialCreate --context MsSqlServerDatabaseContext --output-dir Migrations/MsSqlServerMigrations`
+- Sqlite: `dotnet ef migrations add InitialCreate --context SqliteDatabaseContext --output-dir Migrations/SqliteMigrations`
+
+## Update database schema
+
+- Microsoft SQL Server: `dotnet ef database update --context MsSqlServerDatabaseContext --connection "Server=127.0.0.1;Database=App;User Id=app;Password=empty;"`
+- Sqlite: `dotnet ef database update --context SqliteDatabaseContext --connection "Data Source=./aspnetcorewebappmaterialize.sqlite"`
