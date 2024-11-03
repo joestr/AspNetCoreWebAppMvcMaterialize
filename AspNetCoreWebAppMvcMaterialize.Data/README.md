@@ -34,8 +34,8 @@ We aim to target multiple database systems, so we make things a little bit diffe
 
 ### Create a migration
 
-- Microsoft SQL Server: `dotnet ef migrations add InitialCreate --context MsSqlServerDatabaseContext --output-dir Migrations/MsSqlServerMigrations`
-- Sqlite: `dotnet ef migrations add InitialCreate --context SqliteDatabaseContext --output-dir Migrations/SqliteMigrations`
+- Microsoft SQL Server: `dotnet ef migrations add InitialCreate --project AspNetCoreWebAppMvcMaterialize.Data --context MsSqlServerDatabaseContext --output-dir Migrations/MsSqlServerMigrations`
+- Sqlite: `dotnet ef migrations add InitialCreate --project AspNetCoreWebAppMvcMaterialize.Data --context SqliteDatabaseContext --output-dir Migrations/SqliteMigrations`
 
 ## Update database schema
 

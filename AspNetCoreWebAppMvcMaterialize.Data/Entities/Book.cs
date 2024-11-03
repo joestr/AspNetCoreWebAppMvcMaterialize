@@ -13,13 +13,14 @@ namespace AspNetCoreWebAppMvcMaterialize.Data.Entities
         public string Title { get; set; } = "";
         public string Subtitle { get; set; } = "";
         public string Description { get; set; } = "";
-        public Author Author { get; set; } = new ();
-
+        public Guid AuthorId { get; set; }
+        public Author Author { get; set; }
+        
         public bool Equals(Book? other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Id.Equals(other.Id) && Title == other.Title && Subtitle == other.Subtitle && Description == other.Description && Author.Equals(other.Author);
+            return Id.Equals(other.Id) && Title == other.Title && Subtitle == other.Subtitle && Description == other.Description && AuthorId.Equals(other.AuthorId);
         }
 
         public override bool Equals(object? obj)
@@ -32,17 +33,7 @@ namespace AspNetCoreWebAppMvcMaterialize.Data.Entities
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Title, Subtitle, Description, Author);
-        }
-
-        public static bool operator ==(Book? left, Book? right)
-        {
-            return Equals(left, right);
-        }
-
-        public static bool operator !=(Book? left, Book? right)
-        {
-            return !Equals(left, right);
+            return HashCode.Combine(Id, Title, Subtitle, Description, AuthorId);
         }
     }
 }
