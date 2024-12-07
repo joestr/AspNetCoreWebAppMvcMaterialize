@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
+using TemplateApp.Presentation.Web.ViewModels.Partial;
 using TemplateApp.ViewModels;
 using TemplateApp.ViewModels.Partial;
 
@@ -85,12 +86,48 @@ namespace TemplateApp.Controllers
             return result;
         }
 
+        private TabsViewModel BuildTabs()
+        {
+            var result = new TabsViewModel(
+                [],
+                "tabs",
+                Url.Action("Tabs", "Home") ?? "",
+                [],
+                null,
+                null);
+            result.FillFromQueryCollection(Request.Query);
+            
+            result.Tabs.Add(
+                new TabViewModel(
+                    "Partials/_TextPartial",
+                    new TextViewModel("Content for tab 1"),
+                    "tab1",
+                    "Tab 1"));
+            
+            result.Tabs.Add(
+                new TabViewModel(
+                    "Partials/_TextPartial",
+                    new TextViewModel("Content for tab 2"),
+                    "tab2",
+                    "Tab 2"));
+            
+            result.Tabs.Add(
+                new TabViewModel(
+                    "Partials/_TextPartial",
+                    new TextViewModel("Content for tab 3"),
+                    "tab3",
+                    "Tab 3"));
+            
+            return result;
+        }
+
         //[Authorize]
         public IActionResult Start()
         {
             var viewModel = new HomeStartViewModel();
 
             viewModel.FuelPriceTable = BuildFuelPriceTable();
+            viewModel.Tabs = BuildTabs();
 
             return View(viewModel);
         }
@@ -98,8 +135,13 @@ namespace TemplateApp.Controllers
         public IActionResult FuelPriceTable()
         {
             var viewModel = BuildFuelPriceTable();
-
             return View("Partials/_RefreshTablePartial", viewModel);
+        }
+
+        public IActionResult Tabs()
+        {
+            var viewModel = BuildTabs();
+            return View("Partials/_TabsPartial", viewModel);
         }
     }
 }

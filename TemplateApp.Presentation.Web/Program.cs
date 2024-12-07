@@ -8,8 +8,8 @@ namespace TemplateApp.Presentation.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddSingleton<DatabaseContextService>();
-            builder.Services.AddSingleton<DataProviderService>();
+            builder.Services.RegisterDatabaseService(builder.Configuration);
+            builder.Services.RegisterDataProviders();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

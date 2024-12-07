@@ -1,0 +1,77 @@
+﻿@model TemplateApp.Presentation.Web.ViewModels.Partial.TabsViewModel
+@{
+    Layout = null;
+    bool firstRound;
+}
+
+@if (Model.IncludeContent)
+{
+    <div class="row" id="@{ WriteLiteral($"{Model.GetClassName()}_{Model.Identifier}_Content"); }">
+        <div class="col s12">
+            <ul class="tabs">
+                @{ firstRound = true; }
+                @foreach (var tab in Model.Tabs)
+                {
+                    var onClickUri = $"{Model.GetClassName()}_{Model.Identifier}.selectTabId(&quot;{tab.Id}&quot;, event);";
+                    @if (
+                        (string.IsNullOrEmpty(Model.SelectedTabId) && firstRound)
+                        || (!string.IsNullOrEmpty(Model.SelectedTabId) && (tab.Id == Model.SelectedTabId))
+                    )
+                    {
+                        
+                        <li class="tab col s3"><a class="active" href="#@{ WriteLiteral($"{Model.Identifier}_{tab.Id}"); }" onclick="@{ WriteLiteral($"javascript:{onClickUri}"); }">@tab.Title</a></li>
+                    }
+                    else
+                    {
+                        <li class="tab col s3"><a href="#@{ WriteLiteral($"{Model.Identifier}_{tab.Id}"); }" onclick="@{ WriteLiteral($"javascript:{onClickUri}"); }">@tab.Title</a></li>
+                    }
+
+                    firstRound = false;
+                }
+            </ul>
+        </div>
+        @{ firstRound = true; }
+        @foreach (var tab in Model.Tabs)
+        {
+            @if (
+                (string.IsNullOrEmpty(Model.SelectedTabId) && firstRound)
+                || (!string.IsNullOrEmpty(Model.SelectedTabId) && (tab.Id == Model.SelectedTabId))
+            )
+            {
+                <div class="col s12" id="@{ WriteLiteral($"{Model.Identifier}_{tab.Id}"); }" style="display: block;">
+                    @await Html.PartialAsync(tab.View, tab.ViewModel)
+                </div>
+            }
+            else
+            {
+                // Skip content it does not need to be rendered
+                <div class="col s12" id="@{ WriteLiteral($"{Model.Identifier}_{tab.Id}"); }" style="display: none;">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+}
+@if (Model.IncludeScript)
+{
+    <script src="~/js/classes/Tabs.js"></script>
+    <script>
+        var @{ WriteLiteral($"{Model.GetClassName()}_{Model.Identifier}"); } = { }; 
+
+        document.addEventListener("DOMContentLoaded", function () {
+            /* Base properties */
+            let identifier = "@{ WriteLiteral($"{Model.Identifier}"); }";
+            let refreshUrl = "@{ WriteLiteral($"{Model.RefreshUrl}"); }";
+            let refreshOnEvents = @{ WriteLiteral(Model.RefreshOnEventsJson); };
+            let contentElementId = "@{ WriteLiteral($"{Model.GetClassName()}_{Model.Identifier}_Content"); }";
+            /* Additional properties */
+            let selectedTabsId = @{ WriteLiteral(!string.IsNullOrEmpty(Model.SelectedTabsId) ? $"\"{Model.SelectedTabsId}\"" : "null"); };
+            let selectedTabId = @{ WriteLiteral(!string.IsNullOrEmpty(Model.SelectedTabId) ? $"\"{Model.SelectedTabId}\"" : "null"); }
+
+            @{ WriteLiteral($"{Model.GetClassName()}_{Model.Identifier}"); } = new @{ WriteLiteral(Model.GetClassName()); }(identifier, refreshUrl, refreshOnEvents, contentElementId, selectedTabsId, selectedTabId);
+        });
+    </script>
+}

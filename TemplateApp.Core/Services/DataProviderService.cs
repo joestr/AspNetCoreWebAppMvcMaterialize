@@ -8,9 +8,9 @@ using TemplateApp.Core.Providers.Data;
 
 namespace TemplateApp.Core.Services
 {
-    public class DataProviderService
+    public static class DataProviderService
     {
-        public DataProviderService(IServiceCollection serviceCollection)
+        public static void RegisterDataProviders(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<AuthorDataProvider>();
         }
