@@ -3,18 +3,18 @@ using TemplateApp.Presentation.Web.ViewModels.Partial;
 
 namespace TemplateApp.Presentation.Web.ViewModels.Partial
 {
-    public class TabsViewModel : WebAppComponentViewModel<TabsViewModel>
+    public class PartialTabs : WebAppComponentViewModel<PartialTabs>
     {
-        public List<TabViewModel> Tabs { get; set; } = null;
+        public List<PartialTab> Tabs { get; set; } = null;
         public string SelectedTabsId { get; set; } = "";
         public string SelectedTabId { get; set; } = "";
 
-        public TabsViewModel()
+        public PartialTabs()
         {
             
         }
 
-        public TabsViewModel(List<TabViewModel> tabs, string identifier, string refreshUrl, List<WebAppRefreshOnEvent> refreshOnEvents, string selectedTabsId, string selectedTabId) : base(identifier, refreshUrl, refreshOnEvents)
+        public PartialTabs(List<PartialTab> tabs, string identifier, string refreshUrl, List<WebAppRefreshOnEvent> refreshOnEvents, string selectedTabsId, string selectedTabId) : base(identifier, refreshUrl, refreshOnEvents)
         {
             Tabs = tabs;
             Identifier = identifier;

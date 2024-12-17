@@ -1,10 +1,10 @@
 ﻿namespace TemplateApp.Presentation.Web.ViewModels.Partial;
 
-public class TextViewModel
+public class PartialText
 {
     public string Text { get; set; }
     
-    public TextViewModel(string text)
+    public PartialText(string text)
     {
         Text = text;
     }

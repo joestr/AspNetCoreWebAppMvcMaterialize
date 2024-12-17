@@ -1,4 +1,4 @@
-﻿@model TemplateApp.ViewModels.HomeStartViewModel
+﻿@model TemplateApp.ViewModels.Start
 @{
     ViewData["Title"] = "Start";
 }
@@ -7,10 +7,10 @@
 <p>This is some of a kitchen sink for all things to get layouted properly.</p>
 
 <h2>Horizontal panels</h2>
-<partial name="_HorizontalCardsPartial"/>
+<partial name="_PartialHorizontalCards"/>
 
 <h2>Table</h2>
-<partial name="Partials/_RefreshTablePartial" model="Model.FuelPriceTable"/>
+<partial name="_PartialRefreshTable" model="Model.FuelPriceTable"/>
 
 <h2>Tabs</h2>
-<partial name="Partials/_TabsPartial" model="Model.Tabs"/>
+<partial name="_PartialTabs" model="Model.PartialTabs"/>

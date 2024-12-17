@@ -1,6 +1,6 @@
 ﻿namespace TemplateApp.ViewModels.Partial
 {
-    public class RefreshTablePartialViewModel
+    public class PartialRefreshTable
     {
         public string Identifier { get; }
         public ICollection<IDictionary<string, object>> Entries { get; set; }
@@ -19,7 +19,7 @@
         public bool IsFilterActive => !string.IsNullOrEmpty(SearchTerm);
         public bool IsEmpty => Count == 0;
 
-        public RefreshTablePartialViewModel(string identifier, ICollection<IDictionary<string, object>> entries, int countAll, int count, string refreshEntriesUri, string? searchTerm = null, int perPageItemCount = 5, int page = 1, bool showTableHeader = true, bool showTableFooter = false)
+        public PartialRefreshTable(string identifier, ICollection<IDictionary<string, object>> entries, int countAll, int count, string refreshEntriesUri, string? searchTerm = null, int perPageItemCount = 5, int page = 1, bool showTableHeader = true, bool showTableFooter = false)
         {
             Identifier = identifier;
             Entries = entries;

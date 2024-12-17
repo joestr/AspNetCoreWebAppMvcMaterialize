@@ -56,11 +56,11 @@ namespace TemplateApp.Controllers
             return View();
         }
 
-        private RefreshTablePartialViewModel BuildFuelPriceTable()
+        private PartialRefreshTable BuildFuelPriceTable()
         {
             var allData = _tableData;
 
-            var result = new RefreshTablePartialViewModel(
+            var result = new PartialRefreshTable(
                 FuelPriceRefreshTableIdentifier,
                 allData,
                 allData.Count,
@@ -86,9 +86,9 @@ namespace TemplateApp.Controllers
             return result;
         }
 
-        private TabsViewModel BuildTabs()
+        private PartialTabs BuildTabs()
         {
-            var result = new TabsViewModel(
+            var result = new PartialTabs(
                 [],
                 "tabs",
                 Url.Action("Tabs", "Home") ?? "",
@@ -98,23 +98,23 @@ namespace TemplateApp.Controllers
             result.FillFromQueryCollection(Request.Query);
             
             result.Tabs.Add(
-                new TabViewModel(
-                    "Partials/_TextPartial",
-                    new TextViewModel("Content for tab 1"),
+                new PartialTab(
+                    "_PartialText",
+                    new PartialText("Content for tab 1"),
                     "tab1",
                     "Tab 1"));
             
             result.Tabs.Add(
-                new TabViewModel(
-                    "Partials/_TextPartial",
-                    new TextViewModel("Content for tab 2"),
+                new PartialTab(
+                    "_PartialText",
+                    new PartialText("Content for tab 2"),
                     "tab2",
                     "Tab 2"));
             
             result.Tabs.Add(
-                new TabViewModel(
-                    "Partials/_TextPartial",
-                    new TextViewModel("Content for tab 3"),
+                new PartialTab(
+                    "_PartialText",
+                    new PartialText("Content for tab 3"),
                     "tab3",
                     "Tab 3"));
             
@@ -124,10 +124,10 @@ namespace TemplateApp.Controllers
         //[Authorize]
         public IActionResult Start()
         {
-            var viewModel = new HomeStartViewModel();
+            var viewModel = new Start();
 
             viewModel.FuelPriceTable = BuildFuelPriceTable();
-            viewModel.Tabs = BuildTabs();
+            viewModel.PartialTabs = BuildTabs();
 
             return View(viewModel);
         }
@@ -135,13 +135,13 @@ namespace TemplateApp.Controllers
         public IActionResult FuelPriceTable()
         {
             var viewModel = BuildFuelPriceTable();
-            return View("Partials/_RefreshTablePartial", viewModel);
+            return View("_PartialRefreshTable", viewModel);
         }
 
         public IActionResult Tabs()
         {
             var viewModel = BuildTabs();
-            return View("Partials/_TabsPartial", viewModel);
+            return View("_PartialTabs", viewModel);
         }
     }
 }

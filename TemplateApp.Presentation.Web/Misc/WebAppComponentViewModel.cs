@@ -26,6 +26,6 @@ public class WebAppComponentViewModel<T> : IWebAppJavaScriptClass
     public string GetClassName()
     {
         var classNameString = typeof(T).Name;
-        return classNameString.Substring(0, classNameString.Length - "ViewModel".Length);
+        return classNameString.Substring(("_Partial".Length - 1), classNameString.Length - ("_Partial".Length -1));
     }
 }
